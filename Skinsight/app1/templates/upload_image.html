@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkinSight Upload Image</title>
+    
+    <style>
+        /* Apply background color and center container */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: none; /* Marquee background color */
+            padding: 10px;
+            text-align: center;
+            -webkit-text-fill-color: white;
+            position: absolute; /* Position the marquee at the top */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1; /* Ensure marquee stays on top */
+        }
+
+        .marquee-text {
+            white-space: nowrap;
+            font-size: 30px;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        body {
+            background: linear-gradient(90deg, #020024 0%, #090979 25%, #176A7B 93%); /* Light blue background color for the whole page */
+            margin: 0; /* Remove default margin */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure minimum height covers viewport */
+            position: relative; /* Set position relative for absolute positioning of marquee */
+        }
+
+        .container {
+            background-color: lightblue; /* White background for container */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect for the container */
+            max-width: 500px; /* Limit width of the container */
+            width: 100%;
+            text-align: center; /* Center the contents of the container */
+            z-index: 2; /* Ensure container stays on top of the marquee */
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .white {
+            color: black; /* Change text color to black */
+        }
+
+        /* Style for the file upload button */
+        #btnUpload {
+            margin-bottom: 10px;
+        }
+
+        /* Style for the preview image */
+        #previewImage {
+            display: none;
+            max-width: 100%;
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px;
+            margin-top: 10px;
+            width: 100px; /* Fixed width */
+            height: 100px; /* Fixed height */
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+        }
+
+        /* Style for the submit button */
+        #submitBtn {
+            display: none;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="marquee-container">
+        <div class="marquee-text">
+            Please upload your skin image to check if you are vulnerable to any disease
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="white">Custom File Upload</h1>
+                <p class="white">Select an image to upload</p>
+            </div>
+        </div>
+        
+        <form name="upload" id="uploadForm" method="post" action="{% url 'handle_upload' %}" enctype="multipart/form-data" accept-charset="utf-8">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 center">
+                    <div class="btn-container">
+                        <!-- Display selected image -->
+                        <img id="previewImage" src="#" alt="Preview Image">
+                        <!-- Custom button to trigger file input -->
+                        <button type="button" id="btnUpload" class="btn btn-primary btn-lg">Browse for your image</button>
+                        <!-- Actual file input (hidden) -->
+                        <input type="file" name="fileup" id="fileUpload" style="display: none;">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">            
+                <div class="col-md-12">
+                    <!-- Submit button (initially hidden) -->
+                    <input type="submit" value="Submit" class="btn btn-primary" id="submitBtn">
+                </div>
+            </div>
+
+            
+        </form>
+        {% if prediction %}
+        <div class="prediction-container">
+            <h2>Prediction Result:</h2>
+            <p>Predicted Class: {{ prediction }}</p>
+           
+        </div>
+        {% endif %} 
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        // Function to handle file selection
+        $('#btnUpload').click(function() {
+            $('#fileUpload').click(); // Trigger the file input click
+        });
+
+        // Function to display selected image
+        $('#fileUpload').change(function() {
+            var file = this.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#previewImage').attr('src', e.target.result).show(); // Display preview image
+                    $('#submitBtn').show(); // Show submit button
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+    </script>
+
+</body>
+</html>

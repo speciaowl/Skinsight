@@ -1,0 +1,29 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        {% load static %}
+        <table>
+        <tbody>
+            <header>"Slider Images"</header>
+            {% for i in images %}
+                <tr>
+                    
+                    <td>{{ i.prediction }} </td>
+                    {% if i.image %}
+                        <td>
+                            <img src="{{ i.image.url }}" alt="" class="prod-size">
+                        </td>
+                    {% else %}
+                        <td>
+                            <img src="{% static 'disease1.jpg' %}" alt="" class="prod-size">
+                        </td>
+                    {% endif %}
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        </body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKINSIGHT</title>
+    <script>
+        function validateEmail() {
+            var emailInput = document.getElementById("emails");
+            var email1 = emailInput.value;
+
+            // Basic email validation using a regular expression
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email1)) {
+                alert("Please enter a valid email address");
+                emailInput.focus();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #79BAEC;
+            color: #000080;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            max-width: 15%; /* Adjust the size of the logo as needed */
+            padding-right: 0px;
+            height: auto;
+        }
+
+        .brand-info {
+            margin-left: 15px; /* Add margin for spacing between logo and text */
+            padding-top: 20px;
+            padding-right: 50px;
+            flex-direction: column;
+        }
+
+        .brand-info2 {
+            color: #2B35AF;
+
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            color: #000080;
+            text-decoration: none;
+            margin: 0 20px; /* Add margin for spacing between buttons */
+        }
+
+        .main-content {
+            text-align: center;
+            padding-top: 40px;
+            padding-left: 140px;
+            margin: 0 auto; /* Center the container horizontally */
+    }
+
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px; /* Adjust padding as needed */
+            justify-content: center;
+        }
+
+        .mySlides {
+            display: none;
+            max-width: 100%; /* Adjust the maximum width of the images */
+            height: auto;
+        }
+
+        /* Container with background color */
+        .image-container {
+            background-color: #000080; /* Set your desired background color */
+            display: flex;
+            justify-content: center;
+            position:relative;
+            flex-direction: column; /* Align items in a column */
+            max-width: 1000px;
+            
+            
+        }
+
+        .slideshow-text {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Add styles for next and previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5); /* Set the background color for better visibility */
+        }
+
+        .next {
+            right: 20px; /* Adjust the right position as needed */
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev {
+            left: 20px; /* Adjust the left position as needed */
+            border-radius: 0 3px 3px 0;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px; /* Adjust margin as needed */
+            padding-bottom: 30px;
+        }
+
+        .about-image {
+             /* Adjust the maximum width of the image */
+            height: auto;
+            max-width: 150%;
+            size: 20px;
+            background-color: #0F52BA;
+            color:#FFF;
+            padding: 80px;
+            margin-top: 40px;
+
+        }
+
+        .about-text {
+            text-align: left;
+            max-width: 100%;
+            padding-left: 100px;
+            padding-top: 90px;
+        }
+.abc{font-size:30px;}
+
+footer {
+            background-color: #79BAEC;
+            color: #000080;
+            text-align: center;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .logo-container2, .info-section, .feedback-form {
+            width: 30%; /* Each section takes up 30% of the width */
+        }
+
+        .info-section{
+
+            padding-right: 130px;
+            font-weight: bold;
+            -webkit-text-size-adjust: 10px;
+        }
+
+        .logo-container2{
+
+            size: 0px;
+        }
+
+        .feedback-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .feedback-input {
+            padding: 5px;
+            margin: 0 10px;
+            background-color: #0F52BA;
+            color: #FFF;
+        }
+
+        .feedback-input::placeholder{
+            color: #FFF;
+        }
+
+        .email-input{
+            padding: 5px;
+            margin: 0 10px;
+            background-color: #0F52BA;
+            color: #FFF;
+        }
+
+        .email-input::placeholder{
+            color: #FFF;
+        }
+
+.navbar {
+  overflow: hidden;
+  background-color: #79BAEC;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: #000080;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: #000080;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #0F52BA;
+  -webkit-text-fill-color: #FFF;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #E0FFFF;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #6495ED;
+  -webkit-text-fill-color: #000080;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+    </style>
+</head>
+<body>
+    {% load static %}
+    <header>
+        <div class="logo-container">
+            <img src="{% static 'LOGO_NOBG.png' %}" alt="Company Logo">
+            <div class="brand-info">
+                <spam class="abc">Skinsight</spam><br>
+                    <spam>Where AI meets Dermatology</spam>
+            </div>
+        </div>
+        <nav>
+            <div class="navbar">
+                
+                <div class="dropdown">
+                  <button class="dropbtn">User Account 
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="/login">Login</a>
+                    <a href="/signup">Sign Up</a>
+                  </div>
+                </div> 
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact Us</a>
+              </div>
+              
+        </nav>
+        
+    </header>
+
+    <div class="main-content">
+        <!-- Colored box container -->
+        <div class="image-container">
+            <p class="slideshow-text">DECODE YOUR SKIN'S LANGUAGE WITH SKINSIGHT!!</p>
+            <div class="slideshow-container">
+            <div class="mySlides">
+                <img src="{% static 'image1.png' %}" alt="Slide 1">
+            </div>
+            <div class="mySlides">
+                <img src="{% static 'img2.jpg' %}" alt="Slide 2">
+            </div>
+
+             <div class="mySlides">
+                <img src="{% static 'img1.jpg' %}" alt="Slide 3">
+            </div>
+
+            <div class="mySlides">
+                <img src="{% static 'img4.jpg' %}" alt="Slide 4">
+            </div>
+
+            <div class="mySlides">
+                <img src="{% static 'img3.jpg' %}" alt="Slide 5">
+            </div>
+                <!-- Add more slides as needed -->
+
+                <!-- ... (Previous HTML code) ... -->
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+</div>
+
+<div class="about-container">
+    <div class="about-image">
+        <img src="{% static 'aboutus (1).png' %}" alt="About Us Image"><br>
+       <br> <h1> ABOUT US</h2><br> <br>
+    </div>
+    <div class="about-text" id ="about">
+        <h2 style="color:#000080">About Skinsight</h2>
+        <p style="color:#008080">Welcome to Skin Sight, your trusted companion in dermatological well-being. At Skin Sight, we are dedicated to revolutionizing healthcare by leveraging cutting-edge artificial intelligence and image processing technologies for the preliminary diagnosis of dermatological manifestations.</p>
+        
+        <h2 style="color:#000080">Our Mission</h2>
+        <p style="color:#008080"> At the core of Skin Sight is a mission to empower individuals with the ability to proactively manage their skin health. We strive to provide accessible and accurate preliminary diagnoses of skin diseases through innovative AI-based tools, ensuring early detection and timely intervention. </p>
+
+        <h2 style="color:#000080">Visionary Approach</h2>
+        <p style="color:#008080">Skin Sight is at the forefront of the healthcare revolution, embracing the power of artificial intelligence to transform the way we understand and address skin-related concerns. Our visionary approach involves harnessing the capabilities of image processing algorithms to analyze skin conditions, leading to faster and more precise diagnoses.</p>
+        
+        <h2 style="color:#000080">Commitment to Privacy and Security</h2>
+        <p style="color:#008080">At Skin Sight, we understand the sensitivity of personal health information. We prioritize the highest standards of privacy and security, ensuring that your data is handled with the utmost confidentiality. Our commitment to safeguarding your privacy is unwavering.</p>
+
+    </div>
+</div>
+
+
+</div>
+
+<script>
+    let slideIndex = 0;
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        slideIndex++;
+
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 6000); // Change slide every 2 seconds (adjust as needed)
+    }
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    showSlides();
+</script>
+
+
+<footer id="contact">
+    <div class="section-container">
+        <div class="logo-container2">
+            <!-- Your company logo here -->
+            <img src="{% static 'logos.png' %}" alt="Company Logo" style="max-width: 1000px; height: 200px;">
+        </div>
+        <div class="info-section">
+
+            
+            <img src = "{% static 'contactme.png' %}" alt="CU" style="max-width: 150px; height: 70px;">
+            
+            
+            <p><img src = "{% static 'gmail.png' %}" alt="CU" style="max-width: 150px; height: 40px;"><br>Email-Id:- skinsightcc@gmail.com <br> <br>
+                <img src = "{% static 'telephone.png' %}" alt="CU" style="max-width: 150px; height: 40px;"><br>Phone:- +91 6354199401</p>
+        </div>
+        <div class="feedback-form">
+            
+            <form action="sendmail" method="post"  onsubmit = "return validateEmail()" >
+                {% csrf_token %}
+                <h3>PROVIDE FEEDBACK!!</h3>
+                <input type="email" id="emails" class="email-input" name="emails" placeholder="Your Email" required><br>
+<br>
+                <textarea id="feedback" name="feedback" rows="4" cols="40" class="feedback-input" placeholder="We value your feedback. Please share your thoughts" required></textarea><br>
+                <input type="submit" value="Submit" class="feedback-input" onclick= "submitFeedback()" >
+                <p id="successMessage" style="color: green;"></p>
+            </form>
+        
+    </div>
+</footer>
+<script>
+    function submitFeedback() {
+        var email = document.getElementById('emails').value;
+        var feedbackText = document.getElementById('feedback').value;
+
+        // Your existing JavaScript code for submitting feedback
+
+        // Modify the data you send in the Ajax request
+        xhr.send('email=' + encodeURIComponent(email) + '&feedback=' + encodeURIComponent(feedbackText));
+    }
+
+    function submitFeedback() {
+            var email = document.getElementById('emails').value;
+            var feedbackText = document.getElementById('feedback').value;
+
+            // Your existing JavaScript code for submitting feedback
+
+            // Assuming feedback submission is successful
+            // Display success message using JavaScript
+            document.getElementById('successMessage').innerText = 'Feedback submitted successfully!';
+        }
+
+</script>
+</body>
+</html>
+

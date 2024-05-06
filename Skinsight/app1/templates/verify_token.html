@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{%load static%}
+
+{% block content %}
+
+
+<style>
+    form{
+        width: 500px;
+        height: auto;
+        padding: 20px 20px 20px 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin: 50px auto;
+        border-radius: 10px;
+    }
+    form p{
+        text-align: center;
+    }
+
+    form h3{
+        text-align: center
+    }
+</style>
+<link rel="stylesheet"  href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="'fonts/material-icon/css/material-design-iconic-font.min.css">
+ 
+<div class="main" style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 18%, rgb(23,106,123)93%);">
+
+    <!-- Sign in  Form -->
+    <section class="sign-in">
+        <div class="container">
+            <div class="signin-content">
+               
+                 <div class="signin-form">
+                 
+                    <h2>OTP Verification</h2>
+<!-- Main css -->
+
+    <form action="" method='POST'>   <div class="form-group">
+        {% csrf_token %}
+        <h3><strong>Verify Email</strong></h3>
+       
+            <label class="form-label">OTP</label>
+            <input class="form-control" name="otp_code" placeholder="Enter OTP">
+        
+
+          <button class="form-submit" style="width:100%">Activate Account</button>
+          <p>Need a new OTP? <a href="{% url 'resend-otp' %}">Resend OTP</a></p>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+</section>
+{% endblock content %}
+    

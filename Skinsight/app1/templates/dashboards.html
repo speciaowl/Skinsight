@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKINSIGHT DASHBOARD</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #F0F8FF;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #79BAEC;
+            color: #000080;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px;
+            padding-bottom: 30px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            max-width: 15%; /* Adjust the size of the logo as needed */
+            padding-right: 0px;
+            height: auto;
+        }
+
+        .brand-info {
+            margin-left: 15px; /* Add margin for spacing between logo and text */
+            padding-top: 20px;
+            padding-right: 50px;
+            flex-direction: column;
+        }
+
+        .brand-info2 {
+            color: #2B35AF;
+
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            color: #000080;
+            text-decoration: none;
+            margin: 0 20px; /* Add margin for spacing between buttons */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding-left: 180px;
+            padding-right: 180px;
+            padding-top: 80px;
+            padding-bottom: 50px;
+        }
+        /* Profile Section Styles */
+.profile-container {
+    
+    display: flex;
+    align-items: flex-start;
+}
+
+.photo-section {
+    margin-right: 200px; /* Adjust spacing between photo and details */
+    padding-left: 20px;
+    
+}
+
+.photo-section img {
+    max-width: 100px;
+    height: auto;
+}
+
+.details-section {
+    background-color: #6B84B5; /* Light color for the details box */
+   
+    padding: 50px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.details-box h3 {
+    margin-top: 0; /* Remove default margin for heading */
+    margin-bottom: 10px; /* Add space below heading */
+    
+}
+
+        .profile {
+            border: 1px solid #ccc;
+            padding: 20px;
+            padding-left: 50px;
+            padding-bottom: 70px;
+            -webkit-text-fill-color: #ffffff;
+            margin-bottom: 20px;
+            background-color: #00308F;
+        }
+        .profile img {
+            padding-top: 30px;
+            display: flex;
+            position: relative;
+            padding-bottom: 40px;
+            max-width: 200px;
+            height: 180px;
+            
+        }
+.upload {
+    border: 2px solid #000080;
+    padding: 10px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+        /* Upload Image Section Styles */
+.upload-box {
+    background-color: #7CB9E8; /* Blue color for the upload box */
+    padding: 20px;
+    padding-left: 180px;
+    padding-right: 180px;
+    border-radius: 5px;
+}
+
+.upload-button {
+    cursor: pointer;
+    text-align: center;
+    color: #000080;
+    padding: 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+ 
+   
+
+.upload-button:hover {
+    background-color: #357ebd; /* Darker blue color on hover */
+}
+
+.slider {
+    border: 1px solid #ccc;
+    background-color: #00308F;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #FFF;
+    overflow: hidden;
+
+        }
+
+/* Center the image if only one is uploaded */
+.image-slider.centered {
+    justify-content: center;
+    align-items: center;
+}
+
+
+    .image-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+    }
+
+    .image-slider img {
+        width: 250px;
+        height: 250px;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+
+    /* Hide scrollbar */
+    .slider-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+            
+footer {
+    background-color: #79BAEC;
+    color: #000080;
+    text-align: center;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    
+.section-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.logo-container2, .info-section, .feedback-form {
+    width: 30%; /* Each section takes up 30% of the width */
+    }
+
+.info-section{
+
+    padding-right: 130px;
+    font-weight: bold;
+    -webkit-text-size-adjust: 10px;
+}
+
+.logo-container2{
+
+    size: 0px;
+        }
+
+        .feedback-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .feedback-input {
+            padding: 5px;
+            margin: 0 10px;
+            background-color: #0F52BA;
+            color: #FFF;
+        }
+
+        .feedback-input::placeholder{
+            color: #FFF;
+        }
+
+        .email-input{
+            padding: 5px;
+            margin: 0 10px;
+            background-color: #0F52BA;
+            color: #FFF;
+        }
+
+        .email-input::placeholder{
+            color: #FFF;
+        }
+
+        .logout-button{
+            background-color: #FCA9A9; /* Set the background color */
+            -webkit-text-fill-color: #000080;
+            padding: 15px 60px; /* Set padding to add space inside the button */
+            font-size: 16px; /* Set the font size */
+            border: red; /* Remove the default border */
+            border-radius: 5px; /* Add rounded corners */
+            cursor: pointer; /* Add a cursor pointer on hover */
+            transition: background-color 0.3s ease; /* Add a smooth transition for the background color */
+        }
+
+        .slider-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }   
+
+    </style>
+</head>
+<body>
+    {% load static %}
+    
+    <header>
+        <div class="logo-container">
+            <img src="{% static 'LOGO_NOBG.png' %}" alt="Company Logo">
+            <div class="brand-info">
+                <spam class="abc">Skinsight</spam><br>
+                    <spam>Where AI meets Dermatology</spam>
+            </div>
+        </div>
+        <nav>
+            <a class="link" href="#profile1">Profile</a>
+            <a class="link" href="upload">Upload New Image</a>
+            <a class="link" href="#previmg">Previous Uploads</a> 
+            <a class="link" href="#contact">Contact Us</a>
+          
+        </nav>
+    </header>
+
+<div class="container">
+<section id = "profile1">
+<div class="profile">
+    <h2 style="padding-left: 65px;">Profile</h2>
+
+    <div class="profile-container">
+        <div class="photo-section">
+            {% if data.gender == 'M' %}
+                <img src="{% static 'man.png' %}" alt="Profile Image">
+            {% elif data.gender == 'F' %}
+                <img src="{% static 'woman.png' %}" alt="Profile Image">
+            {% endif %}
+            <h2 style="padding-left: 5px;">Welcome {{request.user}}</h2>
+            <a href="logout"><button type="button" class="logout-button" style="margin-top: 20px;">Logout</button></a>
+        </div>
+        <div class="details-section">
+            <div class="details-box">
+                <h3>Details</h3><br>
+                
+                
+                <p>Email: {{ data.email}}</p>
+                <p>Gender: {{data.gender}}</p>
+                <p>Age: {{data.age}}</p>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section id = "newimg">
+
+        <!-- Upload Image Section -->
+<div class="upload">
+    <h2 style="color: #000080;">Upload Image</h2>
+    <div class="upload-box">
+        <a href="upload"> <!-- Redirects to the upload page -->
+            <div class="upload-button">
+                <div><img src = "{% static 'upload.png' %}" style="width: 80px; height: 90px;"></div>
+                <p>Click here to upload an image</p>
+            </div>
+        </a>
+    </div>
+</div>
+</section>
+
+<div class="slider">
+    <h2>Recent Skinsight Predictions</h2>
+    <div class="image-slider">
+        {% for i in images %}
+            <img src="{{ image_path }}" alt = "Images" class="slider-image">
+        {% endfor %}
+        
+    </div>
+</div>
+
+    
+</div>
+
+
+    <footer id="contact">
+        <div class="section-container">
+            <div class="logo-container2">
+                <!-- Your company logo here -->
+                <img src="{% static 'logos.png' %}"alt="Company Logo" style="max-width: 1000px; height: 200px;">
+            </div>
+            <div class="info-section">
+    
+                
+                <img src = "{% static 'contactme.png' %}" alt="CU" style="max-width: 150px; height: 70px;">
+                
+                
+                <p><img src = "{% static 'gmail.png' %}" alt="CU" style="max-width: 150px; height: 40px;"><br>Email-Id:- skinsightcc@gmail.com <br> <br>
+                    <img src = "{% static 'telephone.png' %}" alt="CU" style="max-width: 150px; height: 40px;"><br>Phone:- +91 6354199401</p>
+            </div>
+            <div class="feedback-form">
+                <form action="sendmail2" method="post"  onsubmit = "return validateEmail()" >
+                    {% csrf_token %}
+                    <h3>PROVIDE FEEDBACK!!</h3>
+                    <input type="email" id="emails" class="email-input" name="emails" placeholder="Your Email" required><br>
+    <br>
+                    <textarea id="feedback" name="feedback" rows="4" cols="40" class="feedback-input" placeholder="We value your feedback. Please share your thoughts" required></textarea><br>
+                    <input type="submit" value="Submit" class="feedback-input" onclick= "submitFeedback()" >
+                    <p id="successMessage" style="color: green;"></p>
+                </form>
+            
+        </div>
+    </footer>
+
+    <!-- JavaScript for uploading image and showing popup -->
+    <script>
+        function uploadImage() {
+            // Redirect to the upload page
+            window.location.href = "{% url 'upload_image' %}";
+        }
+
+        function showPopup(message) {
+            // Display popup with message
+            alert(message);
+        }
+    </script>
+
+    <script>
+        // Function to create image slider
+        function createSlider(predictions) {
+            var slider = document.querySelector('.image-slider');
+
+            predictions.forEach(function(prediction) {
+                var img = document.createElement('img');
+                img.src = prediction.image_url; // Set the image source to the image URL
+                img.alt = prediction.prediction; // Set the prediction as alt text
+                img.classList.add('slider-image');
+                img.onclick = function() {
+                    showPopup(prediction.prediction); // Pass prediction to showPopup function
+                };
+                slider.appendChild(img);
+            });
+
+            // Check if only one image is uploaded
+            if (predictions.length === 1) {
+                slider.classList.add('centered');
+            }
+        }
+
+        // Function to fetch user images and predictions from the server
+        function fetchUserImagesAndPredictions() {
+            fetch('/get-user-images-and-predictions/')
+                .then(response => response.json())
+                .then(data => {
+                    createSlider(data); // Pass fetched data to createSlider function
+                })
+                .catch(error => {
+                    console.error('Error fetching images and predictions:', error);
+                });
+        }
+
+        // Call the function to fetch user images and predictions when the page loads
+        fetchUserImagesAndPredictions();
+    </script>
+</body>
+</html>

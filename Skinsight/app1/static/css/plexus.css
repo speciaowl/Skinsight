@@ -1,0 +1,45 @@
+
+main {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: fit-content;
+  
+}
+
+footer{
+  height: 70px;
+  margin-bottom: 2px;
+}
+
+body{
+  height: fit-content;
+
+}
+#webcoderskull{
+  position: absolute;
+  left: 0;
+  top: 20%;
+  padding: 0 20px;
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+}
+
+canvas{
+  height:76vh;
+  width: 100%;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 18%, rgb(23, 106, 123) 93%);
+}
+#webcoderskull h1{
+letter-spacing: 5px;
+font-size: 5rem;
+font-family: 'Roboto', sans-serif;
+text-transform: uppercase;
+font-weight: bold;
+}
+
+.navbar {
+  background-color: #79BAEC; /* Change to your desired color */
+}
